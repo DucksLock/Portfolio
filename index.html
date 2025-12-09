@@ -20,6 +20,35 @@
         </div>
     </div>
     
+    <!-- About section copied from main site -->
+    <section class="about" id="about">
+        <h2 class="heading">About <span>Me</span><span class="animate scroll" style="--i:1;"></span></h2>
+
+        <div class="about-img">
+            <img src="images/about.png" alt="About image">
+            <span class="circle-spin"></span>
+            <span class="animate scroll" style="--i:2;"></span>
+        </div>
+
+        <div class="about-content">
+            <h3>Hi there! Glad to see you here.<span class="animate scroll" style="--i:3;"></span></h3>
+            <p>Hello! I'm Joey, a passionate Infrastructure & Security Engineer.
+                With a strong foundation in designing and managing robust infrastructures, I thrive on creating secure
+                and efficient systems.
+                My journey in data science has equipped me with the skills to analyze complex datasets and derive
+                meaningful insights.
+                I am committed to continuous learning and staying updated with the latest industry trends.
+                Let's connect and explore how we can collaborate to build innovative solutions together.
+                <span class="animate scroll" style="--i:4;"></span>
+            </p>
+
+            <div class="btn-box btns">
+                <a href="#contact" class="btn">Contact Me</a>
+                <span class="animate scroll" style="--i:5;"></span>
+            </div>
+        </div>
+    </section>
+    
         <section id="experience" class="experience">
         <div class="container">
             <div class="content">
@@ -39,22 +68,11 @@
         </div>
     </section>
 
-    <!-- Contact section
-         Note: GitHub Pages serves static sites and cannot execute PHP. Posting to
-         `contact.php` on GitHub Pages returns a 405/405-like error because there's
-         no server-side PHP to handle the request.
-         Options: (1) Host on a PHP-capable server; (2) use a static form service
-         like Formspree or Formsubmit; (3) move form handling to a serverless
-         endpoint (Vercel/Netlify/GCF/AWS Lambda).
-
-         Below is a quick static fix using Formspree. Replace `YOUR_FORMSPREE_ID`
-         with your Formspree form ID and update the `_next` URL to your site.
-    -->
+    <!-- Contact section (copied from main site, action set to ../contact.php) -->
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span><span class="animate scroll" style="--i:1;"></span></h2>
 
-        <!-- Contact form posts to the PHP handler when hosted on a PHP-capable server -->
-        <form action="contact.php" method="post">
+        <form action="../contact.php" method="post">
             <div id="form-message" aria-live="polite" style="margin-bottom:1rem;color:var(--main-color);"></div>
             <div class="input-box">
                 <div class="input-field">
@@ -119,7 +137,5 @@
             }
         })();
     </script>
-    <iframe src="https://chromedino.com/" frameborder="0" scrolling="no" width="100%" height="100%" loading="lazy"></iframe>
-    <style type="text/css">iframe { position: absolute; width: 100%; height: 100%; z-index: 999; }</style> 
 </body>
 </html>

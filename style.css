@@ -6,6 +6,15 @@
     color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap');
+
+:root {
+    --bg-color: #000F08;
+    --second-bg-color: #136F63;
+    --text-color: #ffffff;
+    --main-color: #E0C829;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +27,9 @@ html, body {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background: var(--bg-color);
     overflow-x: hidden;
 }
 
@@ -47,6 +58,12 @@ body {
 @keyframes drift {
     0% { transform: translate(0, 0); }
     100% { transform: translate(50px, 50px); }
+}
+
+/* spinner animation for the about image ring */
+@keyframes aboutSpinner {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .container {
@@ -127,6 +144,80 @@ p {
 .experience .card h3 {
     margin-bottom: .5rem;
     font-size: 1.4rem;
+}
+
+/* --- About section styles (copied from main site) --- */
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    background: var(--second-bg-color);
+    padding-bottom: 6rem;
+    padding-top: 3rem;
+}
+
+.heading {
+    position: relative;
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.about-img {
+    position: relative;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.about-img img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: .2rem solid var(--main-color);
+    position: relative;
+    z-index: 2;
+}
+
+.about-img .circle-spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    border-top: .2rem solid rgba(255,255,255,0.08);
+    border-bottom: .2rem solid rgba(255,255,255,0.08);
+    border-left: .2rem solid var(--main-color);
+    border-right: .2rem solid var(--main-color);
+    z-index: 1;
+    animation: aboutSpinner 8s linear infinite;
+}
+
+.about-content {
+    text-align: center;
+    max-width: 820px;
+    color: var(--text-color);
+}
+
+.about-content h3 {
+    position: relative;
+    display: inline-block;
+    font-size: 2rem;
+}
+
+.about-content p {
+    font-size: 1.6rem;
+    margin: 1.2rem 0 1.8rem 0;
 }
 
 /* Three.js overlay styles */
@@ -262,56 +353,4 @@ p {
 .contact form .btn-box.btns .btn:hover {
     filter: brightness(0.95);
     transform: translateY(-2px);
-}
-
-/* Mobile: make the contact form fit smaller phone screens
-   - Stack inputs vertically
-   - Reduce padding and font size slightly
-   - Limit form height to viewport and allow internal scrolling
-   - Ensure submit button spans full width for easier tapping
-*/
-@media (max-width: 480px) {
-    .contact h2 {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-    }
-
-    .contact form {
-        max-width: 96%;
-        padding: 1rem;
-        margin: 1rem auto 0 auto;
-        border-radius: 10px;
-        /* keep the form smaller than the screen height and allow internal scroll */
-        max-height: 80vh;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .contact form .input-box {
-        flex-direction: column;
-        gap: .4rem;
-    }
-
-    .contact form .input-box .input-field {
-        width: 100%;
-        margin: .4rem 0;
-    }
-
-    .contact form .input-box .input-field input,
-    .contact form .textarea-field textarea {
-        padding: 1rem;
-        font-size: 1.4rem;
-    }
-
-    .contact form .textarea-field {
-        margin: .6rem 0 1rem;
-    }
-
-    .contact form .btn-box.btns .btn {
-        width: 100%;
-        padding: 12px 14px;
-        font-size: 1.4rem;
-        display: block;
-        box-sizing: border-box;
-    }
 }
