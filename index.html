@@ -39,11 +39,22 @@
         </div>
     </section>
 
-    <!-- Contact section (copied from main site, action set to ../contact.php) -->
+    <!-- Contact section
+         Note: GitHub Pages serves static sites and cannot execute PHP. Posting to
+         `contact.php` on GitHub Pages returns a 405/405-like error because there's
+         no server-side PHP to handle the request.
+         Options: (1) Host on a PHP-capable server; (2) use a static form service
+         like Formspree or Formsubmit; (3) move form handling to a serverless
+         endpoint (Vercel/Netlify/GCF/AWS Lambda).
+
+         Below is a quick static fix using Formspree. Replace `YOUR_FORMSPREE_ID`
+         with your Formspree form ID and update the `_next` URL to your site.
+    -->
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span><span class="animate scroll" style="--i:1;"></span></h2>
 
-        <form action="../contact.php" method="post">
+        <!-- Contact form posts to the PHP handler when hosted on a PHP-capable server -->
+        <form action="contact.php" method="post">
             <div id="form-message" aria-live="polite" style="margin-bottom:1rem;color:var(--main-color);"></div>
             <div class="input-box">
                 <div class="input-field">

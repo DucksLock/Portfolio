@@ -263,3 +263,55 @@ p {
     filter: brightness(0.95);
     transform: translateY(-2px);
 }
+
+/* Mobile: make the contact form fit smaller phone screens
+   - Stack inputs vertically
+   - Reduce padding and font size slightly
+   - Limit form height to viewport and allow internal scrolling
+   - Ensure submit button spans full width for easier tapping
+*/
+@media (max-width: 480px) {
+    .contact h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact form {
+        max-width: 96%;
+        padding: 1rem;
+        margin: 1rem auto 0 auto;
+        border-radius: 10px;
+        /* keep the form smaller than the screen height and allow internal scroll */
+        max-height: 80vh;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .contact form .input-box {
+        flex-direction: column;
+        gap: .4rem;
+    }
+
+    .contact form .input-box .input-field {
+        width: 100%;
+        margin: .4rem 0;
+    }
+
+    .contact form .input-box .input-field input,
+    .contact form .textarea-field textarea {
+        padding: 1rem;
+        font-size: 1.4rem;
+    }
+
+    .contact form .textarea-field {
+        margin: .6rem 0 1rem;
+    }
+
+    .contact form .btn-box.btns .btn {
+        width: 100%;
+        padding: 12px 14px;
+        font-size: 1.4rem;
+        display: block;
+        box-sizing: border-box;
+    }
+}
