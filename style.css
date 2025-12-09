@@ -153,7 +153,9 @@ p {
     align-items: center;
     flex-direction: column;
     gap: 2rem;
+    background-color: #136F63; /* fallback if CSS variables not applied */
     background: var(--second-bg-color);
+    width: 100%;
     padding-bottom: 6rem;
     padding-top: 3rem;
 }
@@ -227,9 +229,9 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    z-index: 9999;
+    z-index: 999; /* lower to avoid obscuring content */
     pointer-events: none; /* allow clicks through while animation plays */
     display: block;
     opacity: 1;
@@ -242,6 +244,7 @@ p {
     left: 0;
     width: 100% !important;
     height: 100% !important;
+    pointer-events: none; /* ensure canvas doesn't capture events in all browsers */
     display: block;
 }
 
@@ -250,7 +253,7 @@ p {
 .contact {
     min-height: auto;
     padding-bottom: 7rem;
-    width: 100vw;
+    width: 100%;
     background: rgba(0,0,0,0.10);
     display: flex;
     flex-direction: column;
