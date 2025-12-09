@@ -1,0 +1,265 @@
+.contact,
+.contact form,
+.contact form input,
+.contact form textarea,
+.contact form .btn {
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ensure full-viewport sizing so overlay can cover entire screen */
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+.pattern-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    z-index: -1;
+}
+
+.pattern-bg::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: drift 20s linear infinite;
+}
+
+@keyframes drift {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.content {
+    text-align: center;
+    color: white;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0.95;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    margin: 0 10px;
+    background: white;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Experience section styles */
+.experience {
+    padding: 6rem 20px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));
+    color: #fff;
+}
+
+.experience h2 {
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+}
+
+.experience .cards {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.experience .card {
+    background: rgba(255,255,255,0.05);
+    padding: 1.2rem 1.5rem;
+    border-radius: 8px;
+    max-width: 320px;
+    text-align: left;
+}
+
+.experience .card h3 {
+    margin-bottom: .5rem;
+    font-size: 1.4rem;
+}
+
+/* Three.js overlay styles */
+#three-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none; /* allow clicks through while animation plays */
+    display: block;
+    opacity: 1;
+}
+
+/* ensure the renderer's canvas absolutely fills the overlay */
+#three-overlay canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+
+/* --- Contact section styles (copied from main site) --- */
+.contact {
+    min-height: auto;
+    padding-bottom: 7rem;
+    width: 100vw;
+    background: rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 3rem;
+}
+
+.contact h2 {
+    display: block;
+    text-align: center;
+    margin: 0 auto 2rem auto;
+    font-size: 2.6rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+.contact form {
+    max-width: 600px;
+    width: 100%;
+    margin: 2rem auto 0 auto;
+    text-align: center;
+    /* subtle accent background to distinguish the form */
+    background: linear-gradient(180deg, rgba(224,200,41,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(128, 124, 102, 0.12);
+    border-radius: 12px;
+    box-shadow: 0 6px 26px rgb(0, 0, 0);
+    padding: 2.5rem 2rem 2rem 2rem;
+}
+
+.contact form .input-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box .input-field {
+    position: relative;
+    width: 49%;
+    margin: .8rem 0;
+}
+
+.contact form .input-box .input-field input,
+.contact form .textarea-field textarea {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: transparent;
+    border-radius: .6rem;
+    border: .2rem solid rgba(0, 0, 0, 0.123);
+}
+
+.contact form .input-box .input-field input::placeholder,
+.contact form .textarea-field textarea::placeholder {
+    color: var(--text-color);
+}
+
+.contact form .focus {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--second-bg-color);
+    border-radius: .6rem;
+    z-index: -1;
+    transition: .5s;
+}
+
+.contact form .input-box .input-field input:focus~.focus,
+.contact form .input-box .input-field input:valid~.focus,
+.contact form .textarea-field textarea:focus~.focus,
+.contact form .textarea-field textarea:valid~.focus {
+    width: 100%;
+}
+
+.contact form .textarea-field {
+    position: relative;
+    margin: .8rem 0 2.7rem;
+    display: flex;
+}
+
+.contact form .textarea-field textarea {
+    resize: none;
+}
+
+.contact form .btn-box.btns .btn {
+    cursor: pointer;
+    /* make submit button match main site's CTA but with black text */
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    color: #000 !important;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.contact form .btn-box.btns .btn:hover {
+    filter: brightness(0.95);
+    transform: translateY(-2px);
+}
